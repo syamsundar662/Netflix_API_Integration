@@ -33,6 +33,7 @@ class _SmartDownloads extends StatelessWidget {
         sizedHeight,
         Row(
           children: [
+            sizedWidth ,
             Icon(Icons.settings),
             Text('Smart Downloads'),
           ],
@@ -58,7 +59,7 @@ class Secition2 extends StatelessWidget {
         const Text(
           'Introducing Downloads for you',
           textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.2),
         ),
         sizedHeight ,
         const Text(

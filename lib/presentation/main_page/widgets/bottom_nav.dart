@@ -26,13 +26,13 @@ class BottomNavigationWidget extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(Icons.home,),label:'Home'),
         BottomNavigationBarItem(
-          icon: Icon(Icons.video_collection_sharp),label:'Home'),
+          icon: Icon(Icons.video_collection_sharp),label:'New & Hot'),
         BottomNavigationBarItem(
-          icon: Icon(Icons.emoji_emotions,),label:'Home'),
+          icon: Icon(Icons.emoji_emotions,),label:'Fast Laugh'),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),label:'Home'),
+          icon: Icon(Icons.search),label:'Search'),
         BottomNavigationBarItem(
-          icon: Icon(Icons.download_for_offline,),label:'Home'),
+          icon: Icon(Icons.download_for_offline,),label:'Download'),
       ]);
     },);
 }} 
