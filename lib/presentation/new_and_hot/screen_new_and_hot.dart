@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_api/core/constants.dart';
 import 'package:netflix_api/presentation/new_and_hot/widgets/coming_soon.dart';
+import 'package:netflix_api/presentation/new_and_hot/widgets/everyones_watching.dart';
 
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});
@@ -54,7 +55,7 @@ class ScreenNewAndHot extends StatelessWidget {
     );
   }
 
-  _tabBarComingSoon(BuildContext context) {
+  Widget _tabBarComingSoon(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
       itemBuilder: (context, index) => const ComingSoonWidget(),
@@ -62,7 +63,10 @@ class ScreenNewAndHot extends StatelessWidget {
     );
   }
 
-  _tabBarEveryonesWatch() {
-    return const SizedBox();
+  Widget _tabBarEveryonesWatch() {
+    return ListView.builder(
+        shrinkWrap: true,
+        itemCount: 10,
+        itemBuilder: (context, index) => const EveryonesWatching());
   }
 }

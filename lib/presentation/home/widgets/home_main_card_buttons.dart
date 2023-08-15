@@ -17,6 +17,7 @@ class BottomBotton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children:[ 
         Icon(icon.icon,size: iconSize,),
         Text(title,style:  TextStyle(fontSize: textSize),)
