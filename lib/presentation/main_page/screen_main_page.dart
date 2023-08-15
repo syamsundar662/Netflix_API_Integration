@@ -9,10 +9,10 @@ import 'package:netflix_api/presentation/search/screen_search.dart';
 class ScreenHomePage extends StatelessWidget {
    ScreenHomePage({super.key});
   final pages = [ 
-    ScreenHome(),
-    ScreenNewAndHot(),
-    ScreenFastLaugh(),
-    ScreenSearch(),
+    const ScreenHome(),
+    const ScreenNewAndHot(),
+    const ScreenFastLaugh(),
+    const ScreenSearch(),
     ScreenDownloads()
   ];
  
@@ -24,7 +24,7 @@ class ScreenHomePage extends StatelessWidget {
         builder: (context, value, _) {
         return pages[value];
       },),
-          bottomNavigationBar: BottomNavigationWidget());
+          bottomNavigationBar: const BottomNavigationWidget());
     
   }
 }

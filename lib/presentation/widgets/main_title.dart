@@ -5,9 +5,12 @@ class MainTitle extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    return  Text(
-      title, 
-      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    return  Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: Text(
+        title, 
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
