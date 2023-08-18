@@ -1,0 +1,9 @@
+class Constants{
+  static const apikey= "5f334454384edd19cfed6d69f2ba980f"; 
+  static const imagaPath= 'https://image.tmdb.org/t/p/w500';
+
+
+  static const topRated= 'https://api.themoviedb.org/3/movie/top_rated?api_key=';
+  static const trendingNow= 'https://api.themoviedb.org/3/movie/popular?api_key=';
+
+}

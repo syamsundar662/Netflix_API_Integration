@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_api/presentation/main_page/screen_main_page.dart';
+import 'package:netflix_api/view/main_page/screen_main_page.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         
         theme: ThemeData(  
-          appBarTheme: AppBarTheme( color: Colors.black),
+          appBarTheme: const AppBarTheme( color: Colors.black),
           colorScheme: const ColorScheme.dark(background: Colors.black87 ),
           useMaterial3: true,
           
