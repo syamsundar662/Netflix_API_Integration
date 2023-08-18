@@ -39,7 +39,7 @@ String onlydate =date[2];
               ),
                 Text(
                 onlydate,
-                style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -87,11 +87,11 @@ String onlydate =date[2];
                         child: Text(
                           upcomingList.title,
                           style:
-                              TextStyle(fontWeight: FontWeight.bold, fontSize: 25,overflow: TextOverflow.ellipsis ),
+                              const TextStyle(fontWeight: FontWeight.bold, fontSize: 25,overflow: TextOverflow.ellipsis ),
                         ),
                       ),
-                      Spacer(),
-                      Row(
+                      const Spacer(),
+                      const Row(
                         children: [
                           BottomBotton(
                             icon: Icon(
@@ -118,18 +118,18 @@ String onlydate =date[2];
                     ],  
                   ),
                    Text(upcomingList.releaseDate,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.w500,
                       )),
                   sizedHeight,
                    Text(
                     upcomingList.title,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
                   ),
                   sizedHeight,
                    Text(
                    upcomingList.overView,
-                    style: TextStyle(color: Colors.grey),
+                    style: const TextStyle(color: Colors.grey),
                   ),
                 ],
               )),

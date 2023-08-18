@@ -63,7 +63,7 @@ class TopSearchItemTile extends StatelessWidget {
  
         ),
         sizedWidth,
-         Expanded(child: Text(moviesList.title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),)),
+         Expanded(child: Text(moviesList.title,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16),)),
         const Icon(Icons.play_circle_outline_outlined,size: 40,)
       ],
     );

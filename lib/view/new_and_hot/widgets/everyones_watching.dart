@@ -6,9 +6,9 @@ import 'package:netflix_api/view/home/widgets/home_main_card_buttons.dart';
 
 class EveryonesWatching extends StatelessWidget {
   const EveryonesWatching({
-    super.key, required this.EveryonesWatchingList,
+    super.key, required this.everyonesWatchingList,
   });
-  final MovieDetails EveryonesWatchingList ;
+  final MovieDetails everyonesWatchingList ;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +19,13 @@ class EveryonesWatching extends StatelessWidget {
         children: [
           sizedHeight,
            Text(
-            EveryonesWatchingList.title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+            everyonesWatchingList.title,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
           ),
           sizedHeight,
            Text(
-            EveryonesWatchingList.overView,
-            style: TextStyle(color: Colors.grey),
+            everyonesWatchingList.overView,
+            style: const TextStyle(color: Colors.grey),
           ),
           sizedHeight,
           Stack(
@@ -34,7 +34,7 @@ class EveryonesWatching extends StatelessWidget {
                 height: 200,
                 width: double.infinity,
                 child: Image.network(
-                 Constants.imagaPath+EveryonesWatchingList.backDropPath,
+                 Constants.imagaPath+everyonesWatchingList.backDropPath,
                   fit: BoxFit.cover,
                 ),
               ),

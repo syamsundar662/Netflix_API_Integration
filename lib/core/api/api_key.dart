@@ -7,6 +7,6 @@ class Constants{
   static const topRated= 'https://api.themoviedb.org/3/movie/top_rated?api_key=';
   static const trendingNow= 'https://api.themoviedb.org/3/movie/popular?api_key=';
   static const upcomingmovies= 'https://api.themoviedb.org/3/movie/upcoming?api_key=';
-  static const nowPlaying= 'https://api.themoviedb.org/3/movie/now_playing?api_key=';
+  static const nowPlaying= 'https://api.themoviedb.org/3/movie/upcoming?api_key=';
 
 }

@@ -6,7 +6,10 @@ import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/coming_soon.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/everyones_watching.dart';
+
+
 ValueNotifier<List<MovieDetails>> upConmingMoviesNotifier =ValueNotifier([]);
+
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});
    getUpcomig() async{
@@ -85,7 +88,7 @@ class ScreenNewAndHot extends StatelessWidget {
       builder: (context,value,_) {
         return ListView.builder(
           shrinkWrap: true,  
-          itemBuilder: (context, index) =>  EveryonesWatching(EveryonesWatchingList: value[index]),
+          itemBuilder: (context, index) =>  EveryonesWatching(everyonesWatchingList: value[index]),
           itemCount: topRatedNotifier.value.length,
         );
       }
