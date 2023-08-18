@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_api/controller/api_integration/top_rated_api.dart';
 import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
 import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/home_main_card_buttons.dart';
-import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 
 class EveryonesWatching extends StatelessWidget {
   const EveryonesWatching({

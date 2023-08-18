@@ -6,6 +6,7 @@ import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/coming_soon.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/everyones_watching.dart';
+import 'package:netflix_api/view/search/widgets/screen_search_idle.dart';
 ValueNotifier<List<MovieDetails>> upConmingMoviesNotifier =ValueNotifier([]);
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});
@@ -35,8 +36,7 @@ class ScreenNewAndHot extends StatelessWidget {
               width: 24,
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(
-                          'https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/8oojjF6p1OHR5jXz9db5IEzQdsa.jpg'))),
+                      image: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117"))),
             ),
             sizedWidth,
           ],

@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/model/home_trending.dart';
-import 'package:netflix_api/model/top_rated.dart';
 import 'package:http/http.dart' as http;
 
 class TopRatedApi{

@@ -4,8 +4,6 @@ import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
 import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/main_card_home.dart';
-import 'package:netflix_api/view/main_page/widgets/bottom_nav.dart';
-import 'package:netflix_api/view/search/widgets/screen_search_idle.dart';
 import 'package:netflix_api/view/search/widgets/search_title.dart';
 
 class SearchResult extends StatelessWidget {
@@ -29,7 +27,7 @@ class SearchResult extends StatelessWidget {
           valueListenable: topRatedNotifier,
           builder: (context, value, child) {
             return GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 1 / 1.5,
                 crossAxisSpacing: 7,

@@ -1,11 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:netflix_api/core/Lists/months.dart';
 import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
 import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/home_main_card_buttons.dart';
-import 'package:netflix_api/view/new_and_hot/widgets/everyones_watching.dart';
 
 
 class ComingSoonWidget extends StatelessWidget {

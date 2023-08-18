@@ -1,34 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:netflix_api/controller/api_integration/now_playing.dart';
+import 'package:netflix_api/controller/api_integration/top_rated_api.dart';
 import 'package:netflix_api/controller/api_integration/trending_api.dart';
+import 'package:netflix_api/controller/api_integration/upcoming.dart';
 import 'package:netflix_api/core/constants.dart';
 import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/home_main_card.dart';
 import 'package:netflix_api/view/home/widgets/home_top_bar_background.dart';
 import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 import 'package:netflix_api/view/home/widgets/number_title_card.dart';
+import 'package:netflix_api/view/new_and_hot/screen_new_and_hot.dart';
 
+ValueNotifier<List<MovieDetails>> nowPlayingNotifiers = ValueNotifier([]);
+ValueNotifier<List<MovieDetails>> trendingNotifiers = ValueNotifier([]);
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
-class ScreenHome extends StatefulWidget {
+
+class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
-
-  @override
-  State<ScreenHome> createState() => _ScreenHomeState();
-}
-
-class _ScreenHomeState extends State<ScreenHome> {
-  late Future<List<MovieDetails>> trendingMovies;
-@override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    trendingMovies =Api().getALlTrending();
+   getAllListerners()async{
+    topRatedNotifier.value=await TopRatedApi().getTopRatedImages();
+    upConmingMoviesNotifier.value=await Upcoming().getUpcomigMovies();
+    nowPlayingNotifiers.value=await NowPlaying().getALLNowPlaying();
+    trendingNotifiers.value=await Api().getALlTrending();
   }
-  
+
+ 
   @override
   Widget build(BuildContext context) {
-    
+    getAllListerners();
+  
+  
+  // late Future<List<MovieDetails>> trendingMovies;
     return Scaffold(
         body: ValueListenableBuilder(
       valueListenable: scrollNotifier,
@@ -47,27 +51,16 @@ class _ScreenHomeState extends State<ScreenHome> {
             children: [
               ListView(
                 children:  [
-                  SizedBox(
-                    child: FutureBuilder(future: trendingMovies , 
-                    builder: (context, snapshot) {
-                      if(snapshot.hasError){
-                        return Center(child: Text(snapshot.error.toString()),);
-                      }else if(snapshot.hasData){
-                        return HomeMainCard(snapshot: snapshot,);
-                      } else {
-                        return const Center(child: CircularProgressIndicator(),);
-                      }
-                    },),
-                  ),
-                  sizedHeight,
-                  // HomeMainCard(),
+                  const HomeMainCard(),
                   MainCardHome(
                     title: 'Released In The Past Year',
+                    listeners: topRatedNotifier,
                     
                   ),
                   sizedHeight,
                    MainCardHome(
                     title: 'Trending Now',
+                    listeners: trendingNotifiers,
                     
                   ),
                   sizedHeight,
@@ -75,11 +68,13 @@ class _ScreenHomeState extends State<ScreenHome> {
                   sizedHeight,
                    MainCardHome(
                     title: 'Tense Dramas',
+                    listeners: nowPlayingNotifiers,
                    
                   ),
                   sizedHeight,
                    MainCardHome(
                     title: 'Top Rated ',
+                    listeners: upConmingMoviesNotifier,
                   ),
                 ],
               ),

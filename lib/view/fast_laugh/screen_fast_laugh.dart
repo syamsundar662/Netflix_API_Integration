@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_api/view/fast_laugh/widget/video_list_item.dart';
+import 'package:netflix_api/view/home/screen_home.dart';
 
 class ScreenFastLaugh extends StatelessWidget {
   const ScreenFastLaugh({super.key});
@@ -8,14 +9,19 @@ class ScreenFastLaugh extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: PageView(
-          scrollDirection: Axis.vertical ,
-          children:
-            List.generate(10, (index) {
-              return VideoList(index: index);
-            })
-        ,
-          )
+        child: ValueListenableBuilder(
+          valueListenable: nowPlayingNotifiers,
+          builder: (context, value, child) {
+            return PageView.builder(
+            itemBuilder: (context, index) {
+              return VideoList(videoList: value[index]);
+            },
+            scrollDirection: Axis.vertical ,
+            
+            );
+          },
+          
+        )
           ), 
           );
   }

@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_api/controller/api_integration/now_playing.dart';
+import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
-import 'package:netflix_api/view/search/widgets/screen_search_idle.dart';
+import 'package:netflix_api/model/home_trending.dart';
+import 'package:netflix_api/view/home/screen_home.dart';
 
 class VideoList extends StatelessWidget {
-  final int index;
-  const VideoList({super.key, required this.index});
+  const VideoList({super.key, required this.videoList});
+  
+  final MovieDetails videoList;
+
+  getdata()async{
+     nowPlayingNotifiers.value = await NowPlaying().getALLNowPlaying();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          color: Colors.accents[index % Colors.accents.length],
+          decoration:BoxDecoration(
+            image: DecorationImage(image: NetworkImage(Constants.imagaPath+videoList.posterPath,),fit:BoxFit.cover )
+          ) ,
+         
         ),
         Align(
           alignment: Alignment.bottomCenter,
@@ -28,21 +39,21 @@ class VideoList extends StatelessWidget {
                       onPressed: () {},
                       icon: const Icon(Icons.volume_off,color: Colors.white,),
                     )),
-                     const Column(
+                      Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      CircleAvatar(
+                      CircleAvatar( 
                         radius: 25,
-                        backgroundImage: NetworkImage(image ),
+                        backgroundImage: NetworkImage(Constants.imagaPath+videoList.posterPath),
                       ),
                       sizedHeight,
-                      VideoActoins(icon: Icons.emoji_emotions, title: 'LOL'),
+                      const VideoActoins(icon: Icons.emoji_emotions, title: 'LOL'),
                       sizedHeight,
-                      VideoActoins(icon: Icons.add, title: 'My Lisy'),
+                      const VideoActoins(icon: Icons.add, title: 'My Lisy'),
                       sizedHeight,
-                      VideoActoins(icon: Icons.share, title: 'Share'),
+                      const VideoActoins(icon: Icons.share, title: 'Share'),
                       sizedHeight,
-                      VideoActoins(icon: Icons.play_arrow , title: ' Play'),
+                      const VideoActoins(icon: Icons.play_arrow , title: ' Play'),
                     ],
                   )
               ],
@@ -53,7 +64,6 @@ class VideoList extends StatelessWidget {
     );
   }
 }
-
 class VideoActoins extends StatelessWidget {
   final IconData icon;
   final String title;

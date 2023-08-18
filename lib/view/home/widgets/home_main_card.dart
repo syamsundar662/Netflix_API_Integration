@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/view/home/widgets/home_main_card_buttons.dart';
+import 'package:netflix_api/view/search/widgets/screen_search_idle.dart';
 
 class HomeMainCard extends StatelessWidget {
-  const HomeMainCard({super.key, required this.snapshot});
-  final AsyncSnapshot snapshot;
+  const HomeMainCard({super.key,});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           height: 600,
           
-          width: double.infinity, child: Container(
-           
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.network('${Constants.imagaPath}${snapshot.data[4].posterPath}',fit: BoxFit.cover,),
-            )),
+          width: double.infinity, child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.network(image,fit: BoxFit.cover,),
+          ),
         ),
         Positioned(
           left: 0,
