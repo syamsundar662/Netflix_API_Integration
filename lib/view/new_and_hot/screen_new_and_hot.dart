@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_api/controller/api_integration/top_rated_api.dart';
+import 'package:netflix_api/controller/api_integration/upcoming.dart';
 import 'package:netflix_api/core/constants.dart';
+import 'package:netflix_api/model/home_trending.dart';
+import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/coming_soon.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/everyones_watching.dart';
-
+ValueNotifier<List<MovieDetails>> upConmingMoviesNotifier =ValueNotifier([]);
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});
+   getUpcomig() async{
+    upConmingMoviesNotifier.value =await Upcoming().getUpcomigMovies();
+  }
+  getEveryOnesWatching()async{
+    topRatedNotifier.value= await TopRatedApi().getTopRatedImages();
+  }
   @override
   Widget build(BuildContext context) {
+    getUpcomig(); 
+    getEveryOnesWatching();
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -51,22 +63,33 @@ class ScreenNewAndHot extends StatelessWidget {
           _tabBarComingSoon(context),
           _tabBarEveryonesWatch(),
         ]),
-      ),
+      ), 
     );
   }
 
   Widget _tabBarComingSoon(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,  
-      itemBuilder: (context, index) => const ComingSoonWidget(),
-      itemCount: 10,
+    return ValueListenableBuilder(
+      valueListenable: upConmingMoviesNotifier,
+      builder: (context,value,_) {
+        return ListView.builder(
+          shrinkWrap: true,  
+          itemBuilder: (context, index) =>  ComingSoonWidget(upcomingList: value[index]),
+          itemCount: upConmingMoviesNotifier.value.length,
+        );
+      }
     );
   }
 
   Widget _tabBarEveryonesWatch() {
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: 10,
-        itemBuilder: (context, index) => const EveryonesWatching());
+    return ValueListenableBuilder(
+      valueListenable: topRatedNotifier,
+      builder: (context,value,_) {
+        return ListView.builder(
+          shrinkWrap: true,  
+          itemBuilder: (context, index) =>  EveryonesWatching(EveryonesWatchingList: value[index]),
+          itemCount: topRatedNotifier.value.length,
+        );
+      }
+    );
   }
 }

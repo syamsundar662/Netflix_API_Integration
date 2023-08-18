@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_api/controller/api_integration/top_rated_api.dart';
+import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
+import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/home_main_card_buttons.dart';
+import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 
 class EveryonesWatching extends StatelessWidget {
   const EveryonesWatching({
-    super.key,
+    super.key, required this.EveryonesWatchingList,
   });
+  final MovieDetails EveryonesWatchingList ;
 
   @override
   Widget build(BuildContext context) {
@@ -15,22 +20,23 @@ class EveryonesWatching extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           sizedHeight,
-          const Text(
-            'Spy Ops',
+           Text(
+            EveryonesWatchingList.title,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
           ),
           sizedHeight,
-          const Text(
-            'Intelligence operatives from M16 to the CIA share insider stories of spy craft,Cold War campaigns, and coups carried out by convert agents.',
+           Text(
+            EveryonesWatchingList.overView,
             style: TextStyle(color: Colors.grey),
           ),
+          sizedHeight,
           Stack(
             children: [
               SizedBox(
                 height: 200,
                 width: double.infinity,
                 child: Image.network(
-                  'https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/wRxLAw4l17LqiFcPLkobriPTZAw.jpg',
+                 Constants.imagaPath+EveryonesWatchingList.backDropPath,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -50,6 +56,7 @@ class EveryonesWatching extends StatelessWidget {
               ),
             ],
           ),
+          sizedHeight,
           const Row(
             children: [
               Spacer(),
@@ -62,13 +69,13 @@ class EveryonesWatching extends StatelessWidget {
               BottomBotton(
                   icon: Icon(Icons.add),
                   iconSize: 25,
-                  textSize: 18,
+                  textSize: 16,
                   title: 'My List'),
               sizedWidth,
               BottomBotton(
                 icon: Icon(Icons.play_arrow_rounded),
                 iconSize: 25,
-                textSize: 18,
+                textSize: 16,
                 title: 'Play',
               ),
               sizedWidth

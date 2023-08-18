@@ -63,7 +63,7 @@ class TopSearchItemTile extends StatelessWidget {
  
         ),
         sizedWidth,
-        const Expanded(child: Text('The Meg 2',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),)),
+         Expanded(child: Text(moviesList.title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),)),
         const Icon(Icons.play_circle_outline_outlined,size: 40,)
       ],
     );

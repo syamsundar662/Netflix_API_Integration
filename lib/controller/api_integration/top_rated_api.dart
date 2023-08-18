@@ -9,10 +9,8 @@ class TopRatedApi{
   String api =  Constants.topRated+Constants.apikey;
     final response = await http.get(Uri.parse(api));
     if (response.statusCode==200){
-      final json = jsonDecode(response.body) ;
-      // ignore: unnecessary_cast
-      final topRatedlist = TopRated.toListTopRatingModel(json['results']) as List;
-      return topRatedlist.map((e) => MovieDetails.fromJson(e)).toList();
+      final json = jsonDecode(response.body)['results'] as List;
+      return json.map((e) => MovieDetails.fromJson(e)).toList();
     }else {
       throw Exception("something went wrong");
     }
