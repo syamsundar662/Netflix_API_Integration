@@ -6,7 +6,6 @@ import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/coming_soon.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/everyones_watching.dart';
-import 'package:netflix_api/view/search/widgets/screen_search_idle.dart';
 ValueNotifier<List<MovieDetails>> upConmingMoviesNotifier =ValueNotifier([]);
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});
