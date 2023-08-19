@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_api/controller/api_integration/trending_api.dart';
+import 'package:netflix_api/controller/notifiers/notifiers.dart';
 import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
 import 'package:netflix_api/model/home_trending.dart';
-import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 import 'package:netflix_api/view/search/widgets/search_title.dart';
 
 const image = 'https://www.themoviedb.org/t/p/w1280/2y48XTa483LRFIb5fDKOwr8DHWz.jpg';

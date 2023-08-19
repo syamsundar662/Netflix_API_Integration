@@ -4,8 +4,6 @@ import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/widgets/main_card.dart';
 import 'package:netflix_api/view/widgets/main_title.dart';
 
-ValueNotifier<List<MovieDetails>> topRatedNotifier = ValueNotifier([]);
-
 class MainCardHome extends StatelessWidget {
   const MainCardHome({
     super.key,required this.title, required this.listeners,

@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class NowPlaying{
 
   Future<List<MovieDetails>> getALLNowPlaying()async{
-    String nowPlaying = Constants.nowPlaying+Constants.apikey;
+    String nowPlaying = Constants.nowPlayings+Constants.apikey;
     final response = await http.get(Uri.parse(nowPlaying));
     if(response.statusCode == 200){
       final decodedDatas = jsonDecode(response.body)['results'] as List;

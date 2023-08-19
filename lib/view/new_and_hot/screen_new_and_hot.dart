@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_api/controller/api_integration/top_rated_api.dart';
 import 'package:netflix_api/controller/api_integration/upcoming.dart';
+import 'package:netflix_api/controller/notifiers/notifiers.dart';
 import 'package:netflix_api/core/constants.dart';
-import 'package:netflix_api/model/home_trending.dart';
-import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/coming_soon.dart';
 import 'package:netflix_api/view/new_and_hot/widgets/everyones_watching.dart';
 
 
-ValueNotifier<List<MovieDetails>> upConmingMoviesNotifier =ValueNotifier([]);
 
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});

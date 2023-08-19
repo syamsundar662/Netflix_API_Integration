@@ -1,26 +1,25 @@
-
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
 import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/home_main_card_buttons.dart';
 
 
+
 class ComingSoonWidget extends StatelessWidget {
-  const ComingSoonWidget({
+   ComingSoonWidget({
     super.key, required this.upcomingList,
   });
  
  final MovieDetails upcomingList;
+ final DateFormat  dayFormat = DateFormat('EEEE');
+ final DateFormat  monthFormat = DateFormat('MMM');
+ final DateFormat  dateFormat = DateFormat('dd');
+
 
   @override
   Widget build(BuildContext context) {
-List<String> date = upcomingList.releaseDate.split('-');
-String onlydate =date[2];
- String month = date[1];
-
- 
- 
     final sizeoofwidth = MediaQuery.of(context).size;
     return Row(
       children: [
@@ -31,14 +30,14 @@ String onlydate =date[2];
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                month ,
+                monthFormat.format(DateTime.parse(upcomingList.releaseDate)) ,
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey[200]),
               ),
                 Text(
-                onlydate,
+                dateFormat.format(DateTime.parse(upcomingList.releaseDate)) , 
                 style: const TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               ),
             ],
@@ -117,8 +116,9 @@ String onlydate =date[2];
                       )
                     ],  
                   ),
-                   Text(upcomingList.releaseDate,
-                      style: const TextStyle(
+                 
+                   Text('Coming On ${dayFormat.format(DateTime.parse(upcomingList.releaseDate))}' ,
+                      style: const TextStyle( 
                         fontWeight: FontWeight.w500,
                       )),
                   sizedHeight,

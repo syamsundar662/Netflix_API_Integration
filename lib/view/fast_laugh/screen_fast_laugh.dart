@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_api/controller/notifiers/notifiers.dart';
 import 'package:netflix_api/view/fast_laugh/widget/video_list_item.dart';
-import 'package:netflix_api/view/home/screen_home.dart';
 
 class ScreenFastLaugh extends StatelessWidget {
   const ScreenFastLaugh({super.key});

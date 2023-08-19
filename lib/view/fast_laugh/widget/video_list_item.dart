@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_api/controller/api_integration/now_playing.dart';
+import 'package:netflix_api/controller/notifiers/notifiers.dart';
 import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
 import 'package:netflix_api/model/home_trending.dart';
-import 'package:netflix_api/view/home/screen_home.dart';
-
 class VideoList extends StatelessWidget {
   const VideoList({super.key, required this.videoList});
   

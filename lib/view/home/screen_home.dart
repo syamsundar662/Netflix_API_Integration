@@ -4,16 +4,13 @@ import 'package:netflix_api/controller/api_integration/now_playing.dart';
 import 'package:netflix_api/controller/api_integration/top_rated_api.dart';
 import 'package:netflix_api/controller/api_integration/trending_api.dart';
 import 'package:netflix_api/controller/api_integration/upcoming.dart';
+import 'package:netflix_api/controller/notifiers/notifiers.dart';
 import 'package:netflix_api/core/constants.dart';
-import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/home_main_card.dart';
 import 'package:netflix_api/view/home/widgets/home_top_bar_background.dart';
 import 'package:netflix_api/view/home/widgets/main_card_home.dart';
 import 'package:netflix_api/view/home/widgets/number_title_card.dart';
-import 'package:netflix_api/view/new_and_hot/screen_new_and_hot.dart';
 
-ValueNotifier<List<MovieDetails>> nowPlayingNotifiers = ValueNotifier([]);
-ValueNotifier<List<MovieDetails>> trendingNotifiers = ValueNotifier([]);
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
 
@@ -30,9 +27,6 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getAllListerners();
-  
-  
-  // late Future<List<MovieDetails>> trendingMovies;
     return Scaffold(
         body: ValueListenableBuilder(
       valueListenable: scrollNotifier,
