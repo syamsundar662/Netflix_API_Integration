@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_api/controller/api_integration/trending_api.dart';
 import 'package:netflix_api/controller/notifiers/notifiers.dart';
 import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
@@ -11,10 +10,6 @@ class SearchResult extends StatelessWidget {
     super.key,
   });
 
-  get() async {
-    topRatedNotifier.value = await Api().getALlTrending();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +19,7 @@ class SearchResult extends StatelessWidget {
         sizedHeight,
         Expanded(
             child: ValueListenableBuilder(
-          valueListenable: topRatedNotifier,
+          valueListenable: searchNotifiers,
           builder: (context, value, child) {
             return GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -37,7 +32,7 @@ class SearchResult extends StatelessWidget {
               itemBuilder: (context, index) {
                 return MainCard(movielist: value[index]);
               },
-              itemCount: topRatedNotifier.value.length,
+              itemCount: searchNotifiers.value.length,
             );
           },
         ))

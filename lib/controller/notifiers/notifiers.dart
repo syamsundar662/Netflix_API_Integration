@@ -5,3 +5,5 @@ ValueNotifier<List<MovieDetails>> upConmingMoviesNotifier =ValueNotifier([]);
 ValueNotifier<List<MovieDetails>> nowPlayingNotifiers = ValueNotifier([]);
 ValueNotifier<List<MovieDetails>> trendingNotifiers = ValueNotifier([]);
 ValueNotifier<List<MovieDetails>> topRatedNotifier = ValueNotifier([]);
+ValueNotifier<List<MovieDetails>> searchNotifiers = ValueNotifier([]);
+ValueNotifier<List<String>> fastLaughtVideoNotofier = ValueNotifier([]);

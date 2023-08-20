@@ -16,11 +16,11 @@ class MovieDetails {
 
   factory MovieDetails.fromJson(Map<String, dynamic> json) {
     return MovieDetails(
-        title: json["title"],
-        backDropPath: json["backdrop_path"],
-        posterPath: json["poster_path"],
-        orginalTitle: json["original_title"],
-        overView: json["overview"],
-        releaseDate: json["release_date"]);
+        title: json["title"]??'',
+        backDropPath: json["backdrop_path"]??'',
+        posterPath: json["poster_path"]??'',
+        orginalTitle: json["original_title"]??'',
+        overView: json["overview"]??'',
+        releaseDate: json["release_date"]??'');
   }
 }

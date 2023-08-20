@@ -22,8 +22,6 @@ class ScreenHome extends StatelessWidget {
     nowPlayingNotifiers.value=await NowPlaying().getALLNowPlaying();
     trendingNotifiers.value=await Api().getALlTrending();
   }
-
- 
   @override
   Widget build(BuildContext context) {
     getAllListerners();
@@ -47,27 +45,27 @@ class ScreenHome extends StatelessWidget {
                 children:  [
                   const HomeMainCard(),
                   MainCardHome(
-                    title: 'Released In The Past Year',
-                    listeners: topRatedNotifier,
+                    title: 'Trending Now',
+                    listeners: trendingNotifiers,
                     
                   ),
                   sizedHeight,
                    MainCardHome(
-                    title: 'Trending Now',
-                    listeners: trendingNotifiers,
+                    title: 'Top Rated',
+                    listeners: topRatedNotifier,
                     
                   ),
                   sizedHeight,
                   const NumberTitleCard(),
                   sizedHeight,
                    MainCardHome(
-                    title: 'Tense Dramas',
+                    title: 'Now Playing',
                     listeners: nowPlayingNotifiers,
                    
                   ),
                   sizedHeight,
                    MainCardHome(
-                    title: 'Top Rated ',
+                    title: 'Up Coming ',
                     listeners: upConmingMoviesNotifier,
                   ),
                 ],
