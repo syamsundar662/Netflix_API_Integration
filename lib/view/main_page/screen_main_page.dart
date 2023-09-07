@@ -12,7 +12,7 @@ class ScreenHomePage extends StatelessWidget {
     const ScreenHome(),
     const ScreenNewAndHot(),
     const ScreenFastLaugh(),
-     ScreenSearch(),
+    const ScreenSearch(),
     ScreenDownloads()
   ];
  
@@ -25,8 +25,5 @@ class ScreenHomePage extends StatelessWidget {
         return pages[value];
       },),
           bottomNavigationBar: const BottomNavigationWidget());
-
-          
-    
   }
 }

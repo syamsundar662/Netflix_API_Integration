@@ -10,13 +10,12 @@ TextEditingController searchController = TextEditingController();
 ValueNotifier<bool> searchNotifier = ValueNotifier(false);
 
 class ScreenSearch extends StatelessWidget {
-   ScreenSearch({super.key});
+   const ScreenSearch({super.key});
 
  get() async {
     searchNotifiers.value = await SearchMovies().searchMovies(searchController.text);
   }
-
-    searchControllerFN(){
+   searchControllerFN(){
       if (searchController.text.isNotEmpty) {
         searchNotifier.value = true;
       } else {

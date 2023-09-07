@@ -56,7 +56,7 @@ class ScreenHome extends StatelessWidget {
                     
                   ),
                   sizedHeight,
-                  const NumberTitleCard(),
+                   NumberTitleCard(listeners: upConmingMoviesNotifier,),
                   sizedHeight,
                    MainCardHome(
                     title: 'Now Playing',

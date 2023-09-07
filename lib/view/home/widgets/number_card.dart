@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_api/core/api/api_key.dart';
 import 'package:netflix_api/core/constants.dart';
+import 'package:netflix_api/model/home_trending.dart';
 import 'package:stroke_text/stroke_text.dart';
 
-import '../../search/widgets/screen_search_idle.dart';
-
 class NumberCard extends StatelessWidget {
-  const NumberCard({super.key, required this.index});
+  const NumberCard({super.key, required this.index, required this.upcome});
   final int index;
 
+  final  MovieDetails upcome;
   @override
   Widget build(BuildContext context) {
     final cardSize = MediaQuery.sizeOf(context);
@@ -20,11 +21,11 @@ class NumberCard extends StatelessWidget {
               width: 30,
             ),
             Container(
-              width: cardSize.width * .35,
+              width: cardSize.width * .35, 
               decoration: BoxDecoration(
                   borderRadius: kradius,
-                  image: const DecorationImage(
-                      image: NetworkImage(image2), fit: BoxFit.cover)),
+                   image:  DecorationImage(image: NetworkImage(Constants.imagaPath+upcome.posterPath),fit: BoxFit.cover ) 
+                      ),
             ),
           ],
         ),

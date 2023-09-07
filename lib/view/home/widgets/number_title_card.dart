@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_api/core/constants.dart';
+import 'package:netflix_api/model/home_trending.dart';
 import 'package:netflix_api/view/home/widgets/number_card.dart';
 import 'package:netflix_api/view/widgets/main_title.dart';
 
 class NumberTitleCard extends StatelessWidget {
   const NumberTitleCard({
-    super.key,
+    super.key, required this.listeners,
   });
+   final ValueNotifier<List<MovieDetails>> listeners;
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,17 @@ class NumberTitleCard extends StatelessWidget {
         sizedHeight,
         LimitedBox(
           maxHeight: 200,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: List.generate(10, (index) => NumberCard(index: index,)),
+          child: ValueListenableBuilder(
+            valueListenable: listeners,
+            builder: (context, value, child) {
+              return ListView.builder(
+                itemCount: value.length,
+                itemBuilder: (context, index) {
+                  return NumberCard(index: index,upcome: value[index],);
+                },
+              scrollDirection: Axis.horizontal,
+            );
+            },
           ),
         ),
       ],

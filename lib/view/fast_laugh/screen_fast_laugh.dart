@@ -9,18 +9,13 @@ class ScreenFastLaugh extends StatefulWidget {
   @override
   State<ScreenFastLaugh> createState() => _ScreenFastLaughState();
 }
-
-
 class _ScreenFastLaughState extends State<ScreenFastLaugh> {
-  
   late Future<List<String>> videoFuture;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     videoFuture = FastLaughVideo().getFastLaughVideoUrls();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +40,6 @@ class _ScreenFastLaughState extends State<ScreenFastLaugh> {
             );
           }else if(value.connectionState ==ConnectionState.waiting){
             return const Center(child: CircularProgressIndicator(),);
-
           } 
           else {
             return const Center(
